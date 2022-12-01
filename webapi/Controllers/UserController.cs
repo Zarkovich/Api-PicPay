@@ -31,11 +31,12 @@ namespace webapi.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return StatusCode(400, ex);
             }
 
         }
 
+        [HttpGet("users")]
         public IActionResult GetAllUsers()
         {
             var allUsers = _context.Users;

@@ -24,7 +24,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-DatabaseManagementService.MigrationInitialize(app);
+//DatabaseManagementService.MigrationInitialize(app);
 
 app.UseHttpsRedirection();
 
