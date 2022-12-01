@@ -11,7 +11,7 @@ using webapi.Models;
 namespace webapi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221201155137_Initial")]
+    [Migration("20221201161024_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
