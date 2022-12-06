@@ -24,6 +24,11 @@ namespace webapi.Controllers
         {
             try
             {
+                var userContainsCpf = _context.Users.Where(x => x.Cpf == user.Cpf);
+                var userContainsEmail = _context.Users.Where(x => x.Email == user.Email);
+
+                if (userContainsCpf.Count() != 0 || userContainsEmail.Count() != 0) return BadRequest("Error: Usuário existente");
+
                 _context.Add(user);
                 _context.SaveChanges();
 

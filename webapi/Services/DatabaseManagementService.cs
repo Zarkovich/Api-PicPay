@@ -17,6 +17,9 @@ namespace webapi.Services
 
                 if (serviceDb == null) throw new Exception("Não foi possível criar uma Migration");
 
+                var haveMigrations = serviceDb.Database.GetAppliedMigrations();
+                if (haveMigrations.Count() > 0) return;
+
                 serviceDb.Database.Migrate();
             }
         }
