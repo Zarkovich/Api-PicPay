@@ -8,10 +8,7 @@ using webapi.Models;
 namespace webapi.Test;
 public class UnitTest1
 {
-    readonly string[] Testes = { "Transação bem sucedida", "Logista não pode transferir", "Saldo insuficiente" };
-    int count = 0;
-
-    [Theory]
+    [Theory(DisplayName = "Testes De transferência")]
     [InlineData(1, 10, 201, "1")]
     [InlineData(2, 10, 400, "2")]
     [InlineData(2, 100, 400, "3")]
@@ -29,8 +26,6 @@ public class UnitTest1
         TransactionController controller = new TransactionController(context);
         var result = await controller.Transaction(payload) as ObjectResult;
         var actualResult = result.StatusCode;
-
-        count++;
 
         Assert.Equal(codeStatus, actualResult);
     }
