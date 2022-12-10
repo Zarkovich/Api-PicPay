@@ -23,8 +23,15 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
-app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwagger(c =>
+{
+    c.RouteTemplate = "api-docs/swagger/{documentName}/swagger.json";
+});
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/api-docs/swagger/v1/swagger.json", "v1");
+    c.RoutePrefix = "api-docs";
+});
 
 
 DatabaseManagementService.MigrationInitialize(app);
